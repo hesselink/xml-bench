@@ -20,3 +20,11 @@ parse = parseText_ def
 
 print :: Document -> Lazy.Text
 print = renderText def
+
+update :: Document -> Document
+update d = d { documentRoot = replaceBWithI (documentRoot d) }
+  where
+    replaceBWithI el | elementName el == "b" = el { elementName = "i" }
+                     | otherwise             = el { elementNodes = map replaceOnNodes (elementNodes el) }
+    replaceOnNodes (NodeElement el) = NodeElement (replaceBWithI el)
+    replaceOnNodes n                = n

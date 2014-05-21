@@ -21,6 +21,13 @@ parse = parseXML
 print :: [Content] -> String
 print = concatMap showContent
 
+update :: [Content] -> [Content]
+update = map replaceBWithI
+  where
+    replaceBWithI (Elem el) | qName (elName el) == "b" = Elem el { elName = QName "i" Nothing Nothing }
+                            | otherwise                = Elem el { elContent = map replaceBWithI (elContent el) }
+    replaceBWithI n         = n
+
 deriving instance Generic Content
 deriving instance Generic CData
 deriving instance Generic Element

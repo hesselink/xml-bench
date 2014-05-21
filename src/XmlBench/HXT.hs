@@ -17,3 +17,9 @@ parse = runLA xread
 
 print :: XmlTrees -> String
 print = concat . runLA (xshow unlistA)
+
+update :: XmlTrees -> XmlTrees
+update = runLA
+  ( processTopDown (setElemName (mkName "i") `when` hasName "b")
+  . unlistA
+  )
