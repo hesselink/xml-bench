@@ -16,6 +16,7 @@ executable xml-bench
                      , criterion
                      , hxt
                      , deepseq
+                     , deepseq-generics
                      , xml
                      , text
                      , xml-conduit
