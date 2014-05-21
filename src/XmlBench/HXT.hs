@@ -5,11 +5,11 @@ import Prelude hiding ((.), id)
 import Control.Category
 import Text.XML.HXT.Core
 
-collect :: String -> [String]
+collect :: XmlTrees -> [String]
 collect = runLA
   ( getText
   . deep (deep isText . hasName "b")
-  . xread
+  . unlistA
   )
 
 parse :: String -> XmlTrees

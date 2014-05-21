@@ -10,11 +10,10 @@ import GHC.Generics
 import Text.XML.Light
 import Text.XML.Light.Lexer
 
-collect :: XmlSource a => a -> [String]
+collect :: [Content] -> [String]
 collect = map strContent
         . concatMap (findElements (QName "b" Nothing Nothing))
         . onlyElems
-        . parseXML
 
 parse :: XmlSource a => a -> [Content]
 parse = parseXML
