@@ -32,13 +32,13 @@ main = do
         , bench "xml-conduit (Text)" (nf XMLConduit.parse ltxt)
         ]
       , bgroup "collect bold text"
-        [ bench "hxt"                (nf HXT.collect        hxt)
-        , bench "xml-light"          (nf XMLLight.collect   xmllight)
-        , bench "xml-conduit (Text)" (nf XMLConduit.collect xmlconduit)
+        [ bench "hxt"         (nf HXT.collect        hxt)
+        , bench "xml-light"   (nf XMLLight.collect   xmllight)
+        , bench "xml-conduit" (nf XMLConduit.collect xmlconduit)
         ]
       , bgroup "print"
-        [ bench "hxt"                (nf HXT.print hxt)
-        , bench "xml-light"          (nf XMLLight.print xmllight)
+        [ bench "hxt"                (nf HXT.print        hxt)
+        , bench "xml-light"          (nf XMLLight.print   xmllight)
         , bench "xml-conduit (Text)" (nf XMLConduit.print xmlconduit)
         ]
       ]
