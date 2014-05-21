@@ -1,0 +1,23 @@
+name:                xml-bench
+version:             0.1.0.0
+synopsis:            Benchmarking Haskell XML libraries
+homepage:            https://github.com/hesselink/xml-bench
+license:             BSD3
+license-file:        LICENSE
+author:              Erik Hesselink
+maintainer:          hesselink@gmail.com
+category:            Data
+build-type:          Simple
+cabal-version:       >=1.10
+
+executable xml-bench
+  main-is:             Main.hs
+  build-depends:       base >= 4.5 && < 4.8
+                     , criterion
+                     , hxt
+                     , deepseq
+                     , xml
+                     , text
+                     , xml-conduit
+  hs-source-dirs:      src
+  default-language:    Haskell2010
