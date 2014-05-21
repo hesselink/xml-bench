@@ -14,3 +14,6 @@ collect = runLA
 
 parse :: String -> XmlTrees
 parse = runLA xread
+
+print :: XmlTrees -> String
+print = concat . runLA (xshow unlistA)

@@ -36,4 +36,9 @@ main = do
         , bench "xml-light"          (nf XMLLight.collect   xmllight)
         , bench "xml-conduit (Text)" (nf XMLConduit.collect xmlconduit)
         ]
+      , bgroup "print"
+        [ bench "hxt"                (nf HXT.print hxt)
+        , bench "xml-light"          (nf XMLLight.print xmllight)
+        , bench "xml-conduit (Text)" (nf XMLConduit.print xmlconduit)
+        ]
       ]

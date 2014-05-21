@@ -18,6 +18,9 @@ collect = map strContent
 parse :: XmlSource a => a -> [Content]
 parse = parseXML
 
+print :: [Content] -> String
+print = concatMap showContent
+
 deriving instance Generic Content
 deriving instance Generic CData
 deriving instance Generic Element

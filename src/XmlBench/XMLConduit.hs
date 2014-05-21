@@ -17,3 +17,6 @@ collect =  content
 
 parse :: Lazy.Text -> Document
 parse = parseText_ def
+
+print :: Document -> Lazy.Text
+print = renderText def
